@@ -1,7 +1,7 @@
 # Sea Level Trend Analysis
 
 ## Hypothesis
-Periods with Sea levels that are exponentially rising will result in more environmental problems compared to periods with lower sea levels.
+Periods with sea levels that are exponentially rising will result in more environmental problems compared to periods with lower sea levels.
 
 ## Problem Statement
 This project explores the increase in sea levels due to global warming and its impacts on the environment such as habitat loss, and flooding.
