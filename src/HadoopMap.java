@@ -18,20 +18,21 @@ import java.io.IOException;
 
 
 
+
 public class HadoopMap extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {
-    @Override
+
     public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
         String line = value.toString();
         String[] data = line.split(",");  // Splitting CSV line
 
-        if (data.length > 2) {  // Check to ensure array has sufficient data
-            String date = data[0].trim();
-            String location = data[1].trim();
+        // Assuming the year is the second column and sea level is the third column
+        if (data.length > 2) {
+            String location = data[0].trim();
+            String year = data[1].trim();
             String seaLevel = data[2].trim();
 
-            // Using location-date as key to track sea level over time per location
-            Text outputKey = new Text(location + ", " + date);
-            Text outputValue = new Text(seaLevel);
+            Text outputKey = new Text(location);
+            Text outputValue = new Text(year + "," + seaLevel);
 
             output.collect(outputKey, outputValue);
         }
